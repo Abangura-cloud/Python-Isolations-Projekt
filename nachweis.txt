@@ -1,0 +1,43 @@
+======================================================================
+DOKUMENTATION: ISOLIERTE PYTHON-UMGEBUNG (nachweis.txt)
+======================================================================
+
+SCHRITT 1 & 2: UMGEBUNG ERSTELLEN, AKTIVIEREN UND PAKET INSTALLIEREN
+----------------------------------------------------------------------
+Befehle zum Erstellen und Aktivieren unter Windows:
+C:\Users\bangu\Python-Isolations-Projekt> python -m venv .venv
+C:\Users\bangu\Python-Isolations-Projekt> .venv\Scripts\activate
+
+Nach der Aktivierung erscheint das Prefix (.venv) im Terminal.
+
+Befehl zur Installation des Pakets im aktivierten Zustand:
+(.venv) C:\Users\bangu\Python-Isolations-Projekt> pip install requests
+
+VERIFIZIERUNG INNERHALB DER VIRTUELLEN UMGEBUNG (check_env.py)
+----------------------------------------------------------------------
+(.venv) C:\Users\bangu\Python-Isolations-Projekt> python check_env.py
+==================================================
+Current Python Interpreter Path:
+C:\Users\bangu\Python-Isolations-Projekt\.venv\Scripts\python.exe
+Package 'requests': INSTALLED
+==================================================
+
+SCHRITT 3 & 4: DEAKTIVIERUNG & VERIFIZIERUNG IM GLOBALEN SYSTEM
+----------------------------------------------------------------------
+Befehl zum Verlassen der Umgebung:
+(.venv) C:\Users\bangu\Python-Isolations-Projekt> deactivate
+
+VERIFIZIERUNG AUSSERHALB DER VIRTUELLEN UMGEBUNG (check_env.py)
+----------------------------------------------------------------------
+C:\Users\bangu\Python-Isolations-Projekt> python check_env.py
+==================================================
+Current Python Interpreter Path:
+C:\Users\bangu\AppData\Local\Programs\Python\Python314\python.exe
+Package 'requests': NOT FOUND
+==================================================
+
+FAZIT:
+Das Script 'check_env.py' liefert den eindeutigen Nachweis: Das Paket 
+'requests' existiert ausschliesslich isoliert innerhalb der virtuellen 
+Umgebung (.venv). Die globale Python-Installation blieb unberuehrt.
+======================================================================
