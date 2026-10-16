@@ -17,4 +17,7 @@ if __name__ == "__main__":
     check_interpreter()
     check_requests_package()
     print("=" * 50)
+<<<<<<< HEAD
     
+=======
+>>>>>>> 15bb6f71ef963176996306eb54756b0302f9003b
